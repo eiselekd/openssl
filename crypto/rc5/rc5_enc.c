@@ -180,7 +180,22 @@ void RC5_32_decrypt(unsigned long *d, RC5_32_KEY *key)
 
     a = d[0];
     b = d[1];
-    if (key->rounds == 16) {
+    if (key->rounds == 20) {
+        D_RC5_32(a, b, s, 40);
+        D_RC5_32(a, b, s, 38);
+        D_RC5_32(a, b, s, 36);
+        D_RC5_32(a, b, s, 34);
+
+        D_RC5_32(a, b, s, 32);
+        D_RC5_32(a, b, s, 30);
+        D_RC5_32(a, b, s, 28);
+        D_RC5_32(a, b, s, 26);
+        /* Do a full expansion to avoid a jump */
+        D_RC5_32(a, b, s, 24);
+        D_RC5_32(a, b, s, 22);
+        D_RC5_32(a, b, s, 20);
+        D_RC5_32(a, b, s, 18);
+    } else if (key->rounds == 16) {
         D_RC5_32(a, b, s, 32);
         D_RC5_32(a, b, s, 30);
         D_RC5_32(a, b, s, 28);

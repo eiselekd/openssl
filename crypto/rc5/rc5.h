@@ -85,11 +85,12 @@ extern "C" {
 # define RC5_8_ROUNDS    8
 # define RC5_12_ROUNDS   12
 # define RC5_16_ROUNDS   16
+# define RC5_20_ROUNDS   20
 
 typedef struct rc5_key_st {
     /* Number of rounds */
     int rounds;
-    RC5_32_INT data[2 * (RC5_16_ROUNDS + 1)];
+    RC5_32_INT data[2 * (RC5_20_ROUNDS + 1)];
 } RC5_32_KEY;
 
 void RC5_32_set_key(RC5_32_KEY *key, int len, const unsigned char *data,
